@@ -36,10 +36,10 @@ export class AppComponent {
           // TODO: loop over satellites
           // TODO: create a Satellite object using new Satellite(fetchedSatellites[i].name, fetchedSatellites[i].type, fetchedSatellites[i].launchDate, fetchedSatellites[i].orbitType, fetchedSatellites[i].operational);
           // TODO: add the new Satellite object to sourceList using: this.sourceList.push(satellite);
-          let satellite: object;
+          // let satellite: object;
           let fetchedSatellites: Satellite[] = data.satellites;
             for (let i = 0; i < fetchedSatellites.length; i++) {
-              satellite = new Satellite(
+              let satellite = new Satellite(
                 fetchedSatellites[i]["name"],
                 fetchedSatellites[i]["type"],
                 fetchedSatellites[i]["launchDate"],
@@ -48,6 +48,7 @@ export class AppComponent {
               );
               this.sourceList.push(satellite);
             }
+            this.displayList = this.sourceList.slice(0);
       
        }.bind(this));
     }.bind(this));
